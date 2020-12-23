@@ -8,26 +8,26 @@ namespace Problem1
     {
         int day, month, year;
 
-        public HireDate(int d,int m,int y)
+        public HireDate(int d, int m, int y)
         {
             day = d;
             month = m;
             year = y;
         }
 
-        public int getDay()
+        public int Day
         {
-            return day;
+            get { return day; }
         }
 
-        public int getMonth()
+        public int Month
         {
-            return month;
+            get {return month; }
         }
 
-        public int getyear()
+        public int Year
         {
-            return year;
+            get { return Year; }
         }
 
     }

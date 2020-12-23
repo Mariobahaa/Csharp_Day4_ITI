@@ -43,7 +43,7 @@ namespace Problem1
             data.Append($"Security Level: {securityLevel} \n");
             data.Append($"Salary: {salary.ToString("C")} \n");
             data.Append($"Gender: {gender} \n");
-            data.Append($"Hiredate: {hireDate.getDay()}/{hireDate.getMonth()}/{hireDate.getyear()}");
+            data.Append($"Hiredate: {hireDate.Day}/{hireDate.Month}/{hireDate.Year}");
 
             return data.ToString();
         }
