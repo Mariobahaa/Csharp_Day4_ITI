@@ -10,16 +10,58 @@ namespace Problem1
             Employee[] EmpArr = new Employee[3];
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("Enter ID: ");
-                int ID = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter Security Level: ");
-                int SL = int.Parse(Console.ReadLine());
+               
+                int ID = -1;
+                while (ID < 1)
+                {
+                    Console.WriteLine("Enter ID: ");
+                    String x = Console.ReadLine();
+                    int val;
+                    if(int.TryParse(x,out val) == true)
+                    {
+                        ID = val;
+                        if (ID < 1) Console.WriteLine("Invalid ID, please try again");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format, please try again");
+                    }
+                }
+                
+                
+                int SL = -1;
+                while (SL < 1 || SL > 15)
+                {
+                    Console.WriteLine("Enter Security Level: ");
+                    String x = Console.ReadLine();
+                    int val;
+                    if (int.TryParse(x, out val) == true)
+                    {
+                        SL = val;
+                        if (SL < 1 || SL > 15) Console.WriteLine("Invalid Security Level, please try again");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format, please try again");
+                    }
+                }
+         
+
                 float Sal = -1;
-                while (Sal < 0)
+                while (Sal < 200)
                 {
                     Console.WriteLine("Enter Salary: ");
-                    Sal = float.Parse(Console.ReadLine());
-                    if (Sal < 0) Console.WriteLine("Invalid Salary, Please Try Again: ");
+                    String x = Console.ReadLine();
+                    float val;
+                    if (float.TryParse(x, out val) == true)
+                    {
+                        Sal = val;
+                        if (Sal < 200) Console.WriteLine("Invlid Salary Level, please try again");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format, please try again");
+                    }
                 }
                 String gen;
                 Console.WriteLine("Enter Gender (M or m: for male & F or f: for female");
@@ -43,11 +85,12 @@ namespace Problem1
 
                     if (arr.Length == 3)
                     {
-                        d = arr[0] == null ? -1 : int.Parse(arr[0]);
+                        int val;
+                        d = arr[0] == null ? -1 : int.TryParse(arr[0], out val)? val : -1;
 
-                        m = arr[1] == null ? -1 : int.Parse(arr[1]);
+                        m = arr[1] == null ? -1 : int.TryParse(arr[1], out val)? val : -1;
 
-                        y = arr[2] == null ? -1 : int.Parse(arr[2]);
+                        y = arr[2] == null ? -1 : int.TryParse(arr[2], out val)? val : -1;
                     }
 
                     if (arr.Length != 3)

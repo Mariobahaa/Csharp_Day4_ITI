@@ -4,6 +4,15 @@ using System.Text;
 
 namespace Problem1
 {
+    [Flags]
+    public enum SecurityPriveleges : byte
+    {
+        //byte Flag enum, security privileges are guest, Developer, secretary and DBA.
+        guest = 0b0000_0001,
+        developer = 0b0000_0010,
+        secretary = 0b0000_0100,
+        dba = 0b0000_1000,
+    }
     public enum Gender
     {
         M, F
@@ -11,7 +20,8 @@ namespace Problem1
 
     public struct Employee
     {
-        int id, securityLevel;
+        int id;
+        SecurityPriveleges securityLevel;
         float salary;
         HireDate hireDate;
         Gender gender;
@@ -19,7 +29,7 @@ namespace Problem1
         public Employee(int ID, int SL, float Sal,Gender G, int d,int m, int y )
         {
             id = ID;
-            securityLevel= SL;
+            securityLevel= (SecurityPriveleges)SL;
             salary = Sal;
             gender = G;
             hireDate = new HireDate(d, m, y);
