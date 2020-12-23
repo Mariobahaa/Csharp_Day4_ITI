@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Problem1
 {
-    public struct HireDate
+    public struct HireDate: IComparable
     {
         int day, month, year;
 
@@ -27,8 +27,23 @@ namespace Problem1
 
         public int Year
         {
-            get { return Year; }
+            get { return year; }
         }
 
+        public int CompareTo(object obj)
+        {
+            HireDate right = (HireDate) obj;
+            if (year> right.Year) return 1;
+            else if (right.Year == year)
+            {
+                if (month > right.Month) return 1;
+                else if (month==right.Month)
+                {
+                    return day.CompareTo(right.Day);
+                }
+                else return -1;
+            }
+            return -1;
+        }
     }
 }

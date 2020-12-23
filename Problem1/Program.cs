@@ -63,18 +63,29 @@ namespace Problem1
                         Console.WriteLine("Invalid format, please try again");
                     }
                 }
-                String gen;
-                Console.WriteLine("Enter Gender (M or m: for male & F or f: for female");
-                gen = Console.ReadLine().ToUpper();
-                while (gen != "F" && gen != "M")
+              
+                Gender gen = (Gender)7;
+                while (gen != Gender.F && gen!= Gender.M)
                 {
-                    if (gen != "F" || gen != "M")
-                        Console.WriteLine("Invalid Gender, Please Try Again: ");
+
                     Console.WriteLine("Enter Gender (M or m: for male & F or f: for female");
-                    gen = Console.ReadLine().ToUpper();
+                    String x = Console.ReadLine().ToUpper();
+                    Gender val;
+
+                    if (Enum.TryParse(x,true, out val)==true)
+                    {
+                        gen = val;
+                    }
+                    else gen = (Gender)7;
+
+
+                    if (gen != Gender.F && gen != Gender.M)
+                        Console.WriteLine("Invalid Gender, Please Try Again: ");
+                
+             
 
                 }
-                Gender G = (Gender)Enum.Parse(typeof(Gender), gen);
+
 
                 int d = -1, m = -1, y = -1;
                 while (d <= 0 || d > 31 || m <= 0 || m > 12 || y <= 1900 || y > 2020)
@@ -105,9 +116,16 @@ namespace Problem1
 
 
 
-                EmpArr[i] = new Employee(ID, SL, Sal, G, d, m, y);
+                EmpArr[i] = new Employee(ID, SL, Sal, gen, d, m, y);
                 Console.WriteLine("");
                 Console.WriteLine("You Entered: ");
+                Console.WriteLine(EmpArr[i].ToString());
+                Console.WriteLine("");
+            }
+
+            Array.Sort(EmpArr);
+            for(int i = 0; i < EmpArr?.Length; i++)
+            {
                 Console.WriteLine(EmpArr[i].ToString());
             }
         }

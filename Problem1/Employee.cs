@@ -18,7 +18,7 @@ namespace Problem1
         M, F
     }
 
-    public struct Employee
+    public struct Employee: IComparable
     {
         int id;
         SecurityPriveleges securityLevel;
@@ -26,6 +26,35 @@ namespace Problem1
         HireDate hireDate;
         Gender gender;
 
+        public int ID
+        {
+            set { id = value; }
+            get { return id; }
+        }
+
+        public SecurityPriveleges SecurityLevel
+        {
+            set { securityLevel = value; }
+            get { return securityLevel; }
+        }
+
+        public float Salary
+        {
+            set { salary = value; }
+            get { return salary; }
+        }
+
+        public HireDate EmpHireDate
+        {
+            set { hireDate = value; }
+            get { return hireDate; }
+        }
+
+        public Gender EmpGender
+        {
+            set { gender = value; }
+            get { return gender; }
+        }
         public Employee(int ID, int SL, float Sal,Gender G, int d,int m, int y )
         {
             id = ID;
@@ -33,6 +62,13 @@ namespace Problem1
             salary = Sal;
             gender = G;
             hireDate = new HireDate(d, m, y);
+
+        }
+
+        public int CompareTo(object obj)
+        {
+            Employee right = (Employee) obj;
+            return hireDate.CompareTo(right.hireDate);
 
         }
 
