@@ -15,7 +15,7 @@ namespace Problem1
 
         public int Length
         {
-            get { return Length; }
+            get { return length; }
         }
 
         public EmployeeSearch(int _Size)
@@ -59,6 +59,7 @@ namespace Problem1
                 {
                     if(length<size)
                     {
+                        nationalIDs[length] = nid;
                         employees[length] = value;
                         length++;
                     }
@@ -97,6 +98,7 @@ namespace Problem1
                 {
                     if (length < size)
                     {
+                        names[length] = nm;
                         employees[length] = value;
                         length++;
                     }
@@ -135,6 +137,7 @@ namespace Problem1
                 {
                     if (length < size)
                     {
+                        hireDates[length] = hd;
                         employees[length] = value;
                         length++;
                     }

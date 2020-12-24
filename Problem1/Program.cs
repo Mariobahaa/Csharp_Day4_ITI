@@ -79,7 +79,7 @@ namespace Problem1
                 while (gen != Gender.F && gen!= Gender.M)
                 {
 
-                    Console.WriteLine("Enter Gender (M or m: for male & F or f: for female");
+                    Console.WriteLine("Enter Gender (M or m: for male & F or f: for female)");
                     String x = Console.ReadLine().ToUpper();
                     Gender val;
 

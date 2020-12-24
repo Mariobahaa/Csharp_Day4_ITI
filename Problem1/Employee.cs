@@ -30,7 +30,7 @@ namespace Problem1
         public String Name
         {
             set { Name = value; }
-            get { return Name; }
+            get { return name; }
         }
 
         public int ID
