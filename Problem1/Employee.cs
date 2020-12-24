@@ -25,6 +25,13 @@ namespace Problem1
         float salary;
         HireDate hireDate;
         Gender gender;
+        String name;
+
+        public String Name
+        {
+            set { Name = value; }
+            get { return Name; }
+        }
 
         public int ID
         {
@@ -55,9 +62,11 @@ namespace Problem1
             set { gender = value; }
             get { return gender; }
         }
-        public Employee(int ID, int SL, float Sal,Gender G, int d,int m, int y )
+        public Employee(int ID, String NAME, SecurityPriveleges SL, float Sal,Gender G, int d,int m, int y )
         {
+
             id = ID;
+            name = NAME;
             securityLevel= (SecurityPriveleges)SL;
             salary = Sal;
             gender = G;

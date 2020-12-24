@@ -27,22 +27,33 @@ namespace Problem1
                         Console.WriteLine("Invalid format, please try again");
                     }
                 }
-                
-                
-                int SL = -1;
-                while (SL < 1 || SL > 15)
+
+                String NAME = "";
+                while(NAME=="")
                 {
-                    Console.WriteLine("Enter Security Level: ");
+                    Console.WriteLine("Enter Name: ");
+                    NAME = String.Format(Console.ReadLine());
+                }
+
+
+                SecurityPriveleges SL = (SecurityPriveleges)0;
+                while (SL == (SecurityPriveleges)0)
+                {
+                    Console.WriteLine("Enter Security Level (Priveleges Should be Separated by only One Space): ");
                     String x = Console.ReadLine();
-                    int val;
-                    if (int.TryParse(x, out val) == true)
+                    String[] arr = x.Split();
+
+                    bool itr = true;
+                    SecurityPriveleges val;
+                    for(int j=0;j<arr?.Length && itr ;j++)
                     {
-                        SL = val;
-                        if (SL < 1 || SL > 15) Console.WriteLine("Invalid Security Level, please try again");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid format, please try again");
+                        SL ^= Enum.TryParse(arr[j], true, out val)? val:(SecurityPriveleges)0;
+                        if(SL==(SecurityPriveleges)0)
+                        {
+                            Console.WriteLine("Invalid Privelege, Please try again");
+                            itr = false;
+                        }    
+
                     }
                 }
          
@@ -116,7 +127,7 @@ namespace Problem1
 
 
 
-                EmpArr[i] = new Employee(ID, SL, Sal, gen, d, m, y);
+                EmpArr[i] = new Employee(ID,NAME, SL, Sal, gen, d, m, y);
                 Console.WriteLine("");
                 Console.WriteLine("You Entered: ");
                 Console.WriteLine(EmpArr[i].ToString());
