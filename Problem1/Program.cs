@@ -147,8 +147,14 @@ namespace Problem1
             empSearch[EmpArr[2].Name] = EmpArr[2];
 
             Console.WriteLine(empSearch[EmpArr[0].ID]);
+            Console.WriteLine("");
+
             Console.WriteLine(empSearch[EmpArr[1].EmpHireDate]);
+            Console.WriteLine("");
+
             Console.WriteLine(empSearch[EmpArr[2].Name]);
+            Console.WriteLine("");
+
 
         }
     }
