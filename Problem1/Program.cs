@@ -139,6 +139,17 @@ namespace Problem1
             {
                 Console.WriteLine(EmpArr[i].ToString());
             }
+            Console.WriteLine("");
+
+            EmployeeSearch empSearch = new EmployeeSearch(3);
+            empSearch[EmpArr[0].ID] = EmpArr[0];
+            empSearch[EmpArr[1].EmpHireDate] = EmpArr[1];
+            empSearch[EmpArr[2].Name] = EmpArr[2];
+
+            Console.WriteLine(empSearch[EmpArr[0].ID]);
+            Console.WriteLine(empSearch[EmpArr[1].EmpHireDate]);
+            Console.WriteLine(empSearch[EmpArr[2].Name]);
+
         }
     }
 }
